@@ -35,19 +35,19 @@ Senior= Liver_Profile[Liver_Profile['Age Group']=='Senior']
 Count=[(Children['Age Group'].count()), (Young['Age Group'].count()), (Middle_Age['Age Group'].count()),
        (Senior['Age Group'].count())]
 
-#BAR GRAPH USING MATPLOTLIB TO NUMBER OF INDIVIDUAL
+BAR GRAPH USING MATPLOTLIB TO NUMBER OF INDIVIDUAL
 
-#def addlabel(x,y):
-    #  for i in range(len(x)):
-    #     plt.text(i, y[i], y[i], ha='center')
-#plt.bar(['Children', 'Young', 'Middle', 'Senior'], Count, width=0.8)
-#addlabel(['Children', 'Young', 'Middle', 'Senior'], Count)
-#plt.xlabel('Age Groups')
-#plt.ylabel('No. of Individuals')
-#plt.title('Distribution of Individuals in Various age Groups')
-#plt.show()
+def addlabel(x,y):
+      for i in range(len(x)):
+         plt.text(i, y[i], y[i], ha='center')
+plt.bar(['Children', 'Young', 'Middle', 'Senior'], Count, width=0.8)
+addlabel(['Children', 'Young', 'Middle', 'Senior'], Count)
+plt.xlabel('Age Groups')
+plt.ylabel('No. of Individuals')
+plt.title('Distribution of Individuals in Various age Groups')
+plt.show()
 
-#plt.savefig('Distribution of Individuals in Various age Groups.png')
+plt.savefig('Distribution of Individuals in Various age Groups.png')
 
 
 #RESETTING INDEX AND PRINITING NUMBER OF ROWS IN EACH DATASET
@@ -56,31 +56,17 @@ Young.reset_index(drop=True, inplace=True)
 Middle_Age.reset_index(drop=True, inplace=True)
 Senior.reset_index(drop=True, inplace=True)
 
-#print("The Number of Children in the Dataset: ", Children['Age'].count(),
-     # "\nThe Number Of Young Individuals in the dataset: ", Young['Age'].count(),
-      #"\nThe Number of Middle aged Citizens in the Dataset: ", Middle_Age['Age'].count(),
-      #"\nThe Number of Senior Citizens in the Dataset: ", Senior['Age'].count())#
+print("The Number of Children in the Dataset: ", Children['Age'].count(),
+      "\nThe Number Of Young Individuals in the dataset: ", Young['Age'].count(),
+      "\nThe Number of Middle aged Citizens in the Dataset: ", Middle_Age['Age'].count(),
+      "\nThe Number of Senior Citizens in the Dataset: ", Senior['Age'].count())#
 
-#FUNCTION TO PRINT THE SAME STATEMENT
+FUNCTION TO PRINT THE SAME STATEMENT
 def protprint (x, y, z):
    print ('Number of ', x,
           'having Protein level', y,
           'are: ',z,'\n')
 
-
-#print("Welcome\nEnter the option you want to check")
-#Normal_ranges = int(input("1. To find the Normal Ranges\n2. To Analyse Total_Bilirubin Data\n3. To Analyse Total "
-                       #  "Protein Content\n"))
-
-
- #       print("Ideal range for Bilirubin is 0.30-0.20mg/dl\nIdeal Range for Total Protein is 6.00-8.30mg/dl")
-
-
-  #  Choose=int(input("This dataset contains Analysis of Liver profile of 583 individuals between the age of 5 and 70\n"
-                   #  "Choose the number for the corresponding data:\n1. Analysis of Total_Bilirubin contents in Children"
-                    # "\n2. Analysis of Total_Bilirubin contents in Age group of 18 and 40"
-                     #"\n3. Analysis of Total_Bilirubin contents in Age of 40 and 60"
-                     #"\n4. Analysis of Total_Bilirubin contents in individuals above 60\n"))
 
 #ANALYSIS FOR TOTAL_BILIRUBIN CONTENT FOR CHILDREN
 
@@ -134,42 +120,42 @@ def Counts(s):
 
 #BAR GRAPH FOR DISTRIBUTION OF CHILDREN IN GIVEN RANGE
 
-#plt.bar(Children_TBilirubin['Result'].drop_duplicates(), Counts(Children_TBilirubin['Result']), width=0.2, color='red')
-#addlabel(Children_TBilirubin['Result'].drop_duplicates(), Counts(Children_TBilirubin['Result']))
-#plt.title("Distribution of Children")
-#plt.xlabel("Interpretation")
-#plt.ylabel("Number of Children")
-#plt.ylim(0, 30)
-#plt.show()
-#plt.savefig("Distribution of Children.png")
+plt.bar(Children_TBilirubin['Result'].drop_duplicates(), Counts(Children_TBilirubin['Result']), width=0.2, color='red')
+addlabel(Children_TBilirubin['Result'].drop_duplicates(), Counts(Children_TBilirubin['Result']))
+plt.title("Distribution of Children")
+plt.xlabel("Interpretation")
+plt.ylabel("Number of Children")
+plt.ylim(0, 30)
+plt.show()
+plt.savefig("Distribution of Children.png")
 
 #PIE CHART
 
-#fig, (ax1, ax2) = plt.subplots(1, 2,figsize=(10,8))
+fig, (ax1, ax2) = plt.subplots(1, 2,figsize=(10,8))
 
-        #M_Count = [(MChild_Normal.Result.count()), (MChild_AboveNormal.Result.count())]
-        #ax1.pie(M_Count, labels=['Normal', 'Above Normal'], autopct='%0.2f%%')
-        #ax1.set_title("Distribution of Male\nChildren")
+M_Count = [(MChild_Normal.Result.count()), (MChild_AboveNormal.Result.count())]
+ax1.pie(M_Count, labels=['Normal', 'Above Normal'], autopct='%0.2f%%')
+ax1.set_title("Distribution of Male\nChildren")
 
 
-        #F_Count = [(FChild_Normal.Result.count()), (FChild_AboveNormal.Result.count())]
-        #ax2.pie(F_Count, labels=['Normal', 'Above Normal'], autopct='%0.2f%%')
-        #ax2.set_title('Distribution of Female\nChildren')
-        #plt.show()
+F_Count = [(FChild_Normal.Result.count()), (FChild_AboveNormal.Result.count())]
+ax2.pie(F_Count, labels=['Normal', 'Above Normal'], autopct='%0.2f%%')
+ax2.set_title('Distribution of Female\nChildren')
+plt.show()
 
-        #plt.bar(Children_TBilirubin['Age'], Children_TBilirubin['Total_Bilirubin'])
+plt.bar(Children_TBilirubin['Age'], Children_TBilirubin['Total_Bilirubin'])
 
-        #plt.xlim(0,20)
-        #plt.xlabel("Age")
-        #plt.ylabel("Total Bilirubin")
-        #plt.title("Total Bilirubin content below 18")
-        #plt.show()
+plt.xlim(0,20)
+plt.xlabel("Age")
+plt.ylabel("Total Bilirubin")
+plt.title("Total Bilirubin content below 18")
+plt.show()
 
-#print("Average Bilirubin Concentration found in Body of children below 18 Years of age is: ", round(Children_TBilirubin_Mean,2),
-         #"\nNumber of Male Children having Total Bilirubin Above Normal are: ", MChild_AboveNormal.Result.count(),
-          #    "\nNumber of Female Children having Total Bilirubin Above Normal are: ",FChild_AboveNormal.Result.count(),
-           #   "\nNumber of Female Children having Total Bilirubin in Normal Range: ",FChild_Normal.Result.count(),
-            #  "\nNumber of Male Children having Total Bilirubin in Normal range: ",MChild_Normal.Result.count())
+print("Average Bilirubin Concentration found in Body of children below 18 Years of age is: ", round(Children_TBilirubin_Mean,2),
+         "\nNumber of Male Children having Total Bilirubin Above Normal are: ", MChild_AboveNormal.Result.count(),
+              "\nNumber of Female Children having Total Bilirubin Above Normal are: ",FChild_AboveNormal.Result.count(),
+              "\nNumber of Female Children having Total Bilirubin in Normal Range: ",FChild_Normal.Result.count(),
+              "\nNumber of Male Children having Total Bilirubin in Normal range: ",MChild_Normal.Result.count())
 
 
 ##############################################################################################################################
@@ -199,13 +185,12 @@ FYoung_Normal= Young_TBilirubin[(Young_TBilirubin['Result']=='Normal') & (Young_
 
 
 
-#        print("Number of Young Male having Total Bilirubin Above Normal are: ", MYoung_AboveNormal.Result.count(),
- #             "\nNumber of Young Female having Total Bilirubin Above Normal are: ",FYoung_AboveNormal.Result.count(),
-  #            "\nNumber of Young Female having Total Bilirubin in Normal Range: ",FYoung_Normal.Result.count(),
-   #           "\nNumber of Young Male having Total Bilirubin in Normal range: ",MYoung_Normal.Result.count())
+        print("Number of Young Male having Total Bilirubin Above Normal are: ", MYoung_AboveNormal.Result.count(),
+              "\nNumber of Young Female having Total Bilirubin Above Normal are: ",FYoung_AboveNormal.Result.count(),
+              "\nNumber of Young Female having Total Bilirubin in Normal Range: ",FYoung_Normal.Result.count(),
+              "\nNumber of Young Male having Total Bilirubin in Normal range: ",MYoung_Normal.Result.count())
 
-
-    #ANALYSIS FOR TOTAL_BILIRUBIN CONTENT FOR MIDDLE AGE GROUP
+#ANALYSIS FOR TOTAL_BILIRUBIN CONTENT FOR MIDDLE AGE GROUP
 Middle_TBilirubin= Middle_Age[['Age', 'Gender', 'Total_Bilirubin']]
 Result = []
 for j in Middle_TBilirubin['Total_Bilirubin']:
@@ -227,10 +212,10 @@ M_Middle_Normal= Middle_TBilirubin[(Middle_TBilirubin['Result']=='Normal') & (Mi
 F_Middle_Normal= Middle_TBilirubin[(Middle_TBilirubin['Result']=='Normal') & (Middle_TBilirubin.Gender=='Female')]
 
 
-#        print("Number of Male in Middle age group having Total Bilirubin Above Normal are: ", M_Middle_AboveNormal.Result.count(),
- #             "\nNumber of Female Middle having Total Bilirubin Above Normal are: ",F_Middle_AboveNormal.Result.count(),
-  #            "\nNumber of  Female Middle having Total Bilirubin in Normal Range: ",F_Middle_Normal.Result.count(),
-   #           "\nNumber of Male Middle  having Total Bilirubin in Normal range: ",M_Middle_Normal.Result.count())
+        print("Number of Male in Middle age group having Total Bilirubin Above Normal are: ", M_Middle_AboveNormal.Result.count(),
+              "\nNumber of Female Middle having Total Bilirubin Above Normal are: ",F_Middle_AboveNormal.Result.count(),
+              "\nNumber of  Female Middle having Total Bilirubin in Normal Range: ",F_Middle_Normal.Result.count(),
+              "\nNumber of Male Middle  having Total Bilirubin in Normal range: ",M_Middle_Normal.Result.count())
 
 
 
@@ -257,18 +242,10 @@ M_Senior_Normal= Senior_TBilirubin[(Senior_TBilirubin['Result']=='Normal') & (Se
 F_Senior_Normal=Senior_TBilirubin[(Senior_TBilirubin['Result']=='Normal') & (Senior_TBilirubin.Gender=='Female')]
 
 
-#        print("Number of Male Senior Citizens having Total Bilirubin Above Normal are: ", M_Senior_AboveNormal.Result.count(),
- #             "\nNumber of Female Senior Citizens having Total Bilirubin Above Normal are: ",F_Senior_AboveNormal.Result.count(),
-  #         "\nNumber of  Female Senior Citizens having Total Bilirubin in Normal Range: ",F_Senior_Normal.Result.count(),
-   #           "\nNumber of Male Senior Citizens  having Total Bilirubin in Normal range: ",M_Senior_Normal.Result.count())
-
-
-   # Choose_Protein = int(input("This dataset contains Analysis of Liver profile of 583 individuals between the age of 5 and 70\n"
-    #          "Choose the number for the corresponding data:\n1. Analysis of Total_Protein contents in Children"
-     #         "\n2. Analysis of Total_Protein contents in Age group of 18 and 40"
-      #       "\n3. Analysis of Total_Protein contents in Age of 40 and 60"
-       #       "\n4. Analysis of Total_Protein contents in individuals above 60\n"))
-
+        print("Number of Male Senior Citizens having Total Bilirubin Above Normal are: ", M_Senior_AboveNormal.Result.count(),
+              "\nNumber of Female Senior Citizens having Total Bilirubin Above Normal are: ",F_Senior_AboveNormal.Result.count(),
+           "\nNumber of  Female Senior Citizens having Total Bilirubin in Normal Range: ",F_Senior_Normal.Result.count(),
+              "\nNumber of Male Senior Citizens  having Total Bilirubin in Normal range: ",M_Senior_Normal.Result.count())
 
 
 ############Analysis OF PROTEIN CONCENTRATION IN CHILDREN#####################################
@@ -309,12 +286,12 @@ M_Child_Above = Total_Protein[(Total_Protein['Gender']== 'Male') & (Total_Protei
 M_Child_Normal = Total_Protein[(Total_Protein['Gender']== 'Male') & (Total_Protein['Age Group']=='Children')
                                           & (Total_Protein['Results']=='Normal')].Results.count()
 
-#            protprint('Female Children', 'Below Normal range', F_Child_Below)
- #           protprint('Female Children', 'Normal', F_Child_Normal)
-  #          protprint('Female Children', 'Above Normal range', F_Child_Above)
-   #         protprint('Male Children', 'Below Normal range', M_Child_Below)
-    #        protprint('Male Children', 'Normal', M_Child_Normal)
-     #       protprint('Male Children', 'Above Normal range', M_Child_Above)
+            protprint('Female Children', 'Below Normal range', F_Child_Below)
+            protprint('Female Children', 'Normal', F_Child_Normal)
+            protprint('Female Children', 'Above Normal range', F_Child_Above)
+            protprint('Male Children', 'Below Normal range', M_Child_Below)
+            protprint('Male Children', 'Normal', M_Child_Normal)
+           protprint('Male Children', 'Above Normal range', M_Child_Above)
 
 ##########################____ANALYSIS OF PROTEIN CONCENTRATION IN YOUNG____#####################
 
@@ -336,12 +313,12 @@ F_Young_Normal = Total_Protein[(Total_Protein['Gender']== 'Female') & (Total_Pro
 F_Young_Above = Total_Protein[(Total_Protein['Gender']== 'Female') & (Total_Protein['Age Group']=='Young')
                                           & (Total_Protein['Results']=='Above Normal')].Results.count()
 
-#            protprint('Young Female', 'Below Normal range', F_Young_Below)
- #           protprint('Young Female', 'Normal', F_Young_Normal)
-  #          protprint('Young Female', 'Above Normal range', F_Young_Above)
-   #         protprint('Young Male', 'Below Normal range', M_Young_Below)
-    #        protprint('Young Male', 'Normal', M_Young_Normal)
-     #       protprint('Young Male', 'Above Normal range', M_Young_Above)
+            protprint('Young Female', 'Below Normal range', F_Young_Below)
+            protprint('Young Female', 'Normal', F_Young_Normal)
+            protprint('Young Female', 'Above Normal range', F_Young_Above)
+            protprint('Young Male', 'Below Normal range', M_Young_Below)
+           protprint('Young Male', 'Normal', M_Young_Normal)
+            protprint('Young Male', 'Above Normal range', M_Young_Above)
 
 
 
@@ -366,12 +343,12 @@ F_Middle_Above = Total_Protein[(Total_Protein['Gender']== 'Female') & (Total_Pro
                                       & (Total_Protein['Results']=='Above Normal')].Results.count()
 
 
-#        protprint('Middle Aged Female', 'Below Normal range', F_Middle_Below)
- #       protprint('Middle Aged Female', 'Normal', F_Middle_Normal)
-  #      protprint('Middle aged Female', 'Above Normal range', F_Middle_Above)
-   #     protprint('Middle aged Male', 'Below Normal range', M_Middle_Below)
-    #    protprint('Middle aged Male', 'Normal', M_Middle_Normal)
-     #   protprint('Middle aged Male', 'Above Normal range', M_Middle_Above)
+        protprint('Middle Aged Female', 'Below Normal range', F_Middle_Below)
+        protprint('Middle Aged Female', 'Normal', F_Middle_Normal)
+        protprint('Middle aged Female', 'Above Normal range', F_Middle_Above)
+        protprint('Middle aged Male', 'Below Normal range', M_Middle_Below)
+        protprint('Middle aged Male', 'Normal', M_Middle_Normal)
+        protprint('Middle aged Male', 'Above Normal range', M_Middle_Above)
 
 ##########################____ANALYSIS OF PROTEIN CONCENTRATION IN SENIOR____#####################
 
@@ -393,13 +370,12 @@ F_Senior_Normal = Total_Protein[(Total_Protein['Gender']== 'Female') & (Total_Pr
 F_Senior_Above = Total_Protein[(Total_Protein['Gender']== 'Female') & (Total_Protein['Age Group']=='Senior')
                                           & (Total_Protein['Results']=='Above Normal')].Results.count()
 
-
-#            protprint('Senior Aged Female', 'Below Normal range', F_Senior_Below)
- #           protprint('Senior Aged Female', 'Normal', F_Senior_Normal)
-  #          protprint('Senior aged Female', 'Above Normal range', F_Senior_Above)
-   #         protprint('Senior aged Male', 'Below Normal range', M_Senior_Below)
-    #        protprint('Senior aged Male', 'Normal', M_Senior_Normal)
-     #       protprint('Senior aged Male', 'Above Normal range', M_Senior_Above)
+protprint('Senior Aged Female', 'Below Normal range', F_Senior_Below)
+protprint('Senior Aged Female', 'Normal', F_Senior_Normal)
+protprint('Senior aged Female', 'Above Normal range', F_Senior_Above)
+protprint('Senior aged Male', 'Below Normal range', M_Senior_Below)
+protprint('Senior aged Male', 'Normal', M_Senior_Normal)
+protprint('Senior aged Male', 'Above Normal range', M_Senior_Above)
 
 
 Bilirubin=[]
